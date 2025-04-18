@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DappTools Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Font for clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Theme toggle button -->
+    <button id="theme-toggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <!-- Search overlay -->
+    <div id="search-overlay" class="hidden">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search documentation...">
+            <button id="close-search"><i class="fas fa-times"></i></button>
+            <div class="search-results">
+                <p>Quick results will appear here...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main container for the layout -->
+    <div class="container">
+        <!-- Left sidebar navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-cubes"></i> DappTools</h2>
+                <button class="mobile-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="sidebar-search">
+                <button id="search-button">
+                    <i class="fas fa-search"></i>
+                    <span>Search docs...</span>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <!-- Navigation links with icons -->
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-rocket"></i> Getting Started</a></li>
+                    <li class="has-dropdown">
+                        <a href="#" class="dropdown-toggle"><i class="fas fa-download"></i> Installation <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">macOS</a></li>
+                            <li><a href="#">Linux</a></li>
+                            <li><a href="#">Windows (WSL)</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#" class="dropdown-toggle"><i class="fas fa-code"></i> Components <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Dapp</a></li>
+                            <li><a href="#">Seth</a></li>
+                            <li><a href="#">Hevm</a></li>
+                            <li><a href="#">Ethsign</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fas fa-book"></i> API Reference</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> Tutorials</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Community</a></li>
+                    <li><a href="#"><i class="fas fa-link"></i> Resources</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="https://github.com/dapphub/dapptools" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://discord.gg/kB2fC3" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+            </div>
+        </aside>
+
+        <!-- Main content area -->
+        <main class="content">
+            <!-- Page header with breadcrumbs -->
+            <header class="content-header">
+                <div class="breadcrumbs">
+                    <span>DappTools</span> / <span>Home</span>
+                </div>
+                <h1>Welcome to DappTools Documentation</h1>
+                <p class="subtitle">Command-line tools for Ethereum smart contract development</p>
+            </header>
+            
+            <!-- Hero section with quick actions -->
+            <section class="hero-section">
+                <div class="card-container">
+                    <div class="quick-card">
+                        <i class="fas fa-download"></i>
+                        <h3>Install DappTools</h3>
+                        <p>Set up your development environment</p>
+                        <a href="#installation" class="btn">Get Started</a>
+                    </div>
+                    <div class="quick-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Read Documentation</h3>
+                        <p>Learn DappTools fundamentals</p>
+                        <a href="#" class="btn">View Docs</a>
+                    </div>
+                    <div class="quick-card">
+                        <i class="fas fa-code"></i>
+                        <h3>View Examples</h3>
+                        <p>See DappTools in action</p>
+                        <a href="#examples" class="btn">Explore</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Introduction section with tabs -->
+            <section class="content-section" id="introduction">
+                <h2>What is DappTools?</h2>
+                <div class="tabs">
+                    <div class="tab-header">
+                        <button class="tab-btn active" data-tab="overview">Overview</button>
+                        <button class="tab-btn" data-tab="features">Features</button>
+                        <button class="tab-btn" data-tab="philosophy">Philosophy</button>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="overview">
+                            <p>DappTools is a suite of Ethereum-focused CLI tools following the Unix philosophy, created by <a href="https://dapp.tools/" target="_blank">Dapp Hub</a>. The suite includes several tools that help with Ethereum smart contract development:</p>
+                            <ul class="feature-list">
+                                <li><strong>Dapp</strong>: Build, test, and deploy smart contracts</li>
+                                <li><strong>Seth</strong>: Interact with Ethereum nodes</li>
+                                <li><strong>Hevm</strong>: Specialized EVM debugger and testing tool</li>
+                                <li><strong>Ethsign</strong>: Sign Ethereum transactions</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" id="features">
+                            <p>DappTools focuses on command-line workflows, allowing developers to leverage familiar shell tools. Key features include:</p>
+                            <ul class="feature-list">
+                                <li><strong>Fast compilation</strong> with incremental builds</li>
+                                <li><strong>Source-matched test coverage</strong> for Solidity contracts</li>
+                                <li><strong>Property-based testing</strong> to find edge cases</li>
+                                <li><strong>Transaction debugging</strong> with source highlighting</li>
+                                <li><strong>Gas usage analysis</strong> for optimization</li>
+                                <li><strong>Symbolic execution</strong> for formal verification</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" id="philosophy">
+                            <p>DappTools embodies the Unix philosophy: each tool does one thing and does it well. This design approach offers several advantages:</p>
+                            <ul class="feature-list">
+                                <li><strong>Composability</strong>: Tools can be combined in powerful ways</li>
+                                <li><strong>Scripting</strong>: Easy to automate with bash scripts</li>
+                                <li><strong>Minimal assumptions</strong>: Works with your existing tools</li>
+                                <li><strong>Strong abstractions</strong>: Each component has a clear purpose</li>
+                            </ul>
+                            <p>This philosophy enables developers to build custom workflows tailored to their specific needs, rather than forcing them into opinionated frameworks.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Installation section -->
+            <section class="content-section" id="installation">
+                <h2>Installation</h2>
+                <div class="collapsible-section">
+                    <button class="collapsible"><i class="fab fa-apple"></i> macOS Installation</button>
+                    <div class="collapsible-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Terminal</span>
+                                <button class="copy-btn" data-clipboard-target="#macos-code"><i class="fas fa-copy"></i></button>
+                            </div>
+                            <pre id="macos-code"><code>curl -L https://nixos.org/nix/install | sh
+nix-env -iA ethereum.dapp</code></pre>
+                        </div>
+                        <p>This will install the Nix package manager and then use it to install DappTools.</p>
+                    </div>
+                </div>
+                
+                <div class="collapsible-section">
+                    <button class="collapsible"><i class="fab fa-linux"></i> Linux Installation</button>
+                    <div class="collapsible-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Terminal</span>
+                                <button class="copy-btn" data-clipboard-target="#linux-code"><i class="fas fa-copy"></i></button>
+                            </div>
+                            <pre id="linux-code"><code>curl -L https://nixos.org/nix/install | sh
+nix-env -iA ethereum.dapp</code></pre>
+                        </div>
+                        <p>For Linux, you may need to ensure you have all the required dependencies installed on your system.</p>
+                    </div>
+                </div>
+                
+                <div class="collapsible-section">
+                    <button class="collapsible"><i class="fab fa-windows"></i> Windows Installation (WSL)</button>
+                    <div class="collapsible-content">
+                        <p>For Windows users, you'll need to install the Windows Subsystem for Linux (WSL) first:</p>
+                        <ol>
+                            <li>Install WSL following <a href="https://docs.microsoft.com/en-us/windows/wsl/install" target="_blank">Microsoft's instructions</a></li>
+                            <li>Open your WSL terminal and run:</li>
+                        </ol>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>WSL Terminal</span>
+                                <button class="copy-btn" data-clipboard-target="#windows-code"><i class="fas fa-copy"></i></button>
+                            </div>
+                            <pre id="windows-code"><code>curl -L https://nixos.org/nix/install | sh
+nix-env -iA ethereum.dapp</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Examples section -->
+            <section class="content-section" id="examples">
+                <h2>Examples</h2>
+                <div class="example-container">
+                    <h3>Creating a New Project</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Terminal</span>
+                            <button class="copy-btn" data-clipboard-target="#example1"><i class="fas fa-copy"></i></button>
+                        </div>
+                        <pre id="example1"><code>mkdir my-dapp && cd my-dapp
+dapp init</code></pre>
+                    </div>
+                    <p>This creates a new Dapp project with the standard directory structure.</p>
+                </div>
+                
+                <div class="example-container">
+                    <h3>Building Smart Contracts</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Terminal</span>
+                            <button class="copy-btn" data-clipboard-target="#example2"><i class="fas fa-copy"></i></button>
+                        </div>
+                        <pre id="example2"><code>dapp build</code></pre>
+                    </div>
+                    <p>Compiles all Solidity contracts in the <code>src/</code> directory.</p>
+                </div>
+                
+                <div class="example-container">
+                    <h3>Running Tests</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Terminal</span>
+                            <button class="copy-btn" data-clipboard-target="#example3"><i class="fas fa-copy"></i></button>
+                        </div>
+                        <pre id="example3"><code>dapp test</code></pre>
+                    </div>
+                    <p>Runs all tests found in the <code>src/</code> directory.</p>
+                </div>
+            </section>
+
+            <!-- Official Resources section -->
+            <section class="content-section">
+                <h2>Official Resources</h2>
+                <div class="card-grid">
+                    <div class="resource-card">
+                        <div class="card-icon"><i class="fab fa-github"></i></div>
+                        <div class="card-content">
+                            <h3>DappTools GitHub Repository</h3>
+                            <p>The official repository containing Dapp and related tools, with comprehensive documentation, installation instructions, and code examples.</p>
+                            <a href="https://github.com/dapphub/dapptools" target="_blank" class="card-link">View Repository <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="card-icon"><i class="fas fa-book"></i></div>
+                        <div class="card-content">
+                            <h3>Dapp Documentation</h3>
+                            <p>Official documentation explaining Dapp's features, commands, and usage patterns with detailed examples for smart contract development.</p>
+                            <a href="https://dapp.tools/dapp/" target="_blank" class="card-link">View Documentation <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="card-icon"><i class="fas fa-globe"></i></div>
+                        <div class="card-content">
+                            <h3>DappHub Website</h3>
+                            <p>The primary website for all DappTools components, featuring introduction guides and links to individual tool documentation.</p>
+                            <a href="https://dapp.tools/" target="_blank" class="card-link">Visit Website <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="content-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">How does DappTools compare to Hardhat and Truffle?</button>
+                        <div class="faq-answer">
+                            <p>DappTools differs from Hardhat and Truffle in its philosophy and approach:</p>
+                            <ul>
+                                <li><strong>Philosophy</strong>: DappTools follows the Unix philosophy with composable command-line tools, while Hardhat and Truffle are more framework-oriented.</li>
+                                <li><strong>Configuration</strong>: DappTools requires minimal configuration, whereas Hardhat and Truffle use JavaScript configuration files.</li>
+                                <li><strong>Workflow</strong>: DappTools emphasizes command-line operations, while Hardhat and Truffle are more JavaScript-centric.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">Can I use DappTools with existing projects?</button>
+                        <div class="faq-answer">
+                            <p>Yes, DappTools can be used with existing Solidity projects. You may need to adjust your project structure slightly to match DappTools' expectations:</p>
+                            <ul>
+                                <li>Place your contracts in the <code>src/</code> directory</li>
+                                <li>Create test files that follow the DappTools testing pattern</li>
+                                <li>Configure <code>.dapprc</code> for your specific project needs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">Is DappTools compatible with the latest Solidity versions?</button>
+                        <div class="faq-answer">
+                            <p>DappTools regularly updates its Solidity compiler support. You can specify the Solidity version in your <code>.dapprc</code> file:</p>
+                            <div class="code-block">
+                                <pre><code>export DAPP_SOLC_VERSION=0.8.10</code></pre>
+                            </div>
+                            <p>Check the <a href="https://github.com/dapphub/dapptools" target="_blank">GitHub repository</a> for the latest supported versions.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom CTA -->
+            <section class="cta-section">
+                <div class="cta-content">
+                    <h2>Ready to get started with DappTools?</h2>
+                    <p>Join the community of Ethereum developers using DappTools for efficient smart contract development.</p>
+                    <div class="cta-buttons">
+                        <a href="#installation" class="btn btn-primary">Install Now</a>
+                        <a href="https://github.com/dapphub/dapptools" target="_blank" class="btn btn-secondary">View on GitHub</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript for interactive elements -->
+    <script>
+        // Helper function for selecting elements
+        const select = (selector) => document.querySelector(selector);
+        const selectAll = (selector) => document.querySelectorAll(selector);
+        
+        // Toggle sidebar on mobile
+        select('.mobile-toggle').addEventListener('click', () => {
+            select('.sidebar').classList.toggle('active');
+        });
+        
+        // Tab functionality
+        selectAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const tab = button.dataset.tab;
+                
+                // Remove active class from all buttons and panes
+                selectAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                selectAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding pane
+                button.classList.add('active');
+                select(`#${tab}`).classList.add('active');
+            });
+        });
+        
+        // Collapsible sections
+        selectAll('.collapsible').forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('active');
+                const content = button.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+        
+        // FAQ Accordion
+        selectAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+                const answer = question.nextElementSibling;
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+        
+        // Copy to clipboard functionality
+        selectAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.dataset.clipboardTarget;
+                const codeElement = select(targetId);
+                const textToCopy = codeElement.textContent;
+                
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    // Show copied message
+                    button.innerHTML = '<i class="fas fa-check"></i>';
+                    setTimeout(() => {
+                        button.innerHTML = '<i class="fas fa-copy"></i>';
+                    }, 2000);
+                });
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = select('#back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Dropdown menus in sidebar
+        selectAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggle.parentElement.classList.toggle('open');
+                const dropdownMenu = toggle.nextElementSibling;
+                if (dropdownMenu.style.maxHeight) {
+                    dropdownMenu.style.maxHeight = null;
+                } else {
+                    dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+                }
+            });
+        });
+        
+        // Dark/Light mode toggle
+        const themeToggle = select('#theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            if (document.body.classList.contains('dark-theme')) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        // Search functionality
+        select('#search-button').addEventListener('click', () => {
+            select('#search-overlay').classList.remove('hidden');
+            select('#search-input').focus();
+        });
+        
+        select('#close-search').addEventListener('click', () => {
+            select('#search-overlay').classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
